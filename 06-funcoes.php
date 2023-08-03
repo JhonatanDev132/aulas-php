@@ -37,5 +37,41 @@
     ?>
     <p>Estamos no curso de <b><?=dadosCurso()?></b></p>
     <p><?=dadosCurso()?> é ministrado no Senac Penha</p>
+
+    <h2>Função com parâmetros (ou argumentos)</h2>
+    <?php
+    function soma($valor1, $valor2, $valor3){
+        $total = $valor1 + $valor2 + $valor3;
+        return $total;
+    }
+    ?>
+<!-- Chamando e exibindo diretamente o retorno -->
+    <p>Resultado 1: <?=soma(10, 20, 5)?></p>
+    <p>Resultado 2: <?=soma(23, 84, 1000.75)?></p>
+    <?php
+    // Chamando e guardando o retorno
+    $resultado3 = soma(500, 480, 700);
+    ?>
+    <p>Resultado 3: <?=$resultado3?></p>
+    <?php if($resultado3 > 100) { ?>
+    <p>Vinicius foi demitido!</p>
+    <?php } ?>
+
+    <h2>0</h2>
+<!-- Usando uma função como parte de uma condição -->
+    <?php if(soma(2, 3, 10) >= 10 ){ ?>
+        <p>Kaue reprovado!!!</p>
+    <?php
+        }
+    ?>
+
+    <?php
+    function saudacao($mensagem, $pessoa = "Fulano(a)"){
+        return "Olá, $mensagem $pessoa";
+    }
+    ?>
+    <p><?=saudacao("bom-dia", "Melissa")?></p>
+    <p><?=saudacao("boa noite", "Tanaka")?></p>
+    <p><?=saudacao("boa tarde")?></p>
 </body>
 </html>
