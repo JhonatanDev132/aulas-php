@@ -28,5 +28,14 @@
             <?=dadosAutor()?>
         </article>
     </section>
+
+    <h2>Função com retorno de dados</h2>
+    <?php
+    function dadosCurso(){
+        return "Encher o saco no wpp";
+    }
+    ?>
+    <p>Estamos no curso de <b><?=dadosCurso()?></b></p>
+    <p><?=dadosCurso()?> é ministrado no Senac Penha</p>
 </body>
 </html>
