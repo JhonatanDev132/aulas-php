@@ -73,5 +73,28 @@
     <p><?=saudacao("bom-dia", "Melissa")?></p>
     <p><?=saudacao("boa noite", "Tanaka")?></p>
     <p><?=saudacao("boa tarde")?></p>
+
+    <h2>Indução de tipos de dados</h2>
+
+    <?php
+    // Tipos de dados mais comuns
+    // string -> caracteres em geral
+    // int -> números inteiros
+    // float -> números com casas decimais
+    // array -> vetor
+
+    function verificaNegativo($valor){
+        if($valor < 0 ){
+            return "é negativo";
+        } else {
+            return "não é negativo";
+
+        }
+    }
+    ?>
+
+    <p>Número 10: <?=verificaNegativo(10)?></p>
+    <p>Número -10: <?=verificaNegativo(-10)?></p>
+    <p>Número 50: <?=verificaNegativo("TEXTO")?></p>
 </body>
 </html>
