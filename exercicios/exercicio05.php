@@ -11,52 +11,71 @@
             background-color: greenyellow;
         }
         .reprovado{
-            color: brown;
+            color: red;
             font-weight: bold;
+            background-color: darkred;
+        }
+        table{
+            border: solid 3px;
+            margin: auto;
+            text-align: center;
+        }
+        th{
+            border: solid 1px;
+            padding: 10px;
+            width: 30%;
+            color: gray;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
     </style>
 </head>
 <body>
     <h1>Exercício 5</h1>
-
+    
     <?php
-    $alunos = [
-        ["Jhonatan", 10, 5],
-        [""]
-    ];
-    function calcularMedia($nota1, $nota2){
-        $media = ($nota1 + $nota2) / 2;
-        return $media;
+    function calcularMedia(float $nota1,float $nota2):float{
+        return ($nota1 + $nota2) / 2;
     };
-
-    $nota1 = 8;
-    $nota2 = 8;
-
-    $media = calcularMedia($nota1, $nota2);
-    ?>
-    <?php
-    function situacao($media){
+    
+    function verificarSituacao(float $media): string{
         if($media < 6){
-    ?>
-            <span class="reprovado">
-    <?php
-            return "Reprovado";
-    ?>
-            </span>
-    <?php
-        } else {
-    ?>
-            <span class="aprovado">
-    <?php
-            return "Aprovado";
-    ?>
-            </span>
-    <?php
+            return "<span class ='reprovado'>Reprovado</span>";
         }
-    };
-    ?>
+        return "<span class ='aprovado'>Aprovado</span>";
+    }
 
-    <p>Média das notas: <?=$media?></p>
-    <p>E você está: <?=situacao($media)?></p>
+
+    $alunos = [
+        ["nomeAluno" => "Jhonatan", "nota1" => 10, "nota2" => 9],
+        ["nomeAluno" => "Victor", "nota1" => 8, "nota2" => 9],
+        ["nomeAluno" => "Phelipe", "nota1" => 4, "nota2" => 6],
+        ["nomeAluno" => "Tanaka", "nota1" => 7, "nota2" => 7],
+        ["nomeAluno" => "Eliel", "nota1" => 5, "nota2" => 5]
+    ];
+    ?>
+    <table>
+        <tr>
+            <td>Alunos</td>
+            <td>Média</td>
+            <td>Situação</td>
+        </tr>
+    <?php
+    
+    foreach($alunos as $aluno){
+    ?>
+    <?php
+        $media = calcularMedia($aluno["nota1"], $aluno["nota2"]);
+        $situacao = verificarSituacao($media);
+        ?>     
+        <tr>
+            <th><?=$aluno["nomeAluno"]?></th>
+            <th><?=$media?></th>
+            <th> <?=$situacao?></th>
+        </tr>
+    <?php
+}
+    ?>
+    </table>
+
 </body>
 </html>
