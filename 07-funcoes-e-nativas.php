@@ -23,12 +23,14 @@ $nomeSemEspaço = trim($nome);
     <?php
     /* Função que permite substituição
     de strings/caracteres. */
-    $fraseFeia = "<p>Fulano é um bobão</p>";
+    $fraseFeia = "<p>Fulano é um bobão e xarope</p>";
     $fraseBunitinha = str_replace(
         ["xarope","bobão"],
         "******",
         $fraseFeia);
     ?>
+    <p><?=$fraseFeia?></p>
+    <p><?=$fraseBunitinha?></p>
     <h2>Númericas</h2>
 
     <h2>Arrays</h2>
