@@ -19,6 +19,16 @@ $nomeSemEspaço = trim($nome);
 <pre> <?=var_dump($nome)?></pre>
 <pre> <?=var_dump($nomeSemEspaço)?></pre>
 
+    <h3>str_replace()</h3>
+    <?php
+    /* Função que permite substituição
+    de strings/caracteres. */
+    $fraseFeia = "<p>Fulano é um bobão</p>";
+    $fraseBunitinha = str_replace(
+        ["xarope","bobão"],
+        "******",
+        $fraseFeia);
+    ?>
     <h2>Númericas</h2>
 
     <h2>Arrays</h2>
