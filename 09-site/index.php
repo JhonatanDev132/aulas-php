@@ -1,4 +1,6 @@
-<?php require "inc/cabecalho.php"?>
+
+<?php require "inc/cabecalho.php" ?>
+
 
     <h2>Bem-vindo ao Site exemplo</h2>
 
