@@ -19,6 +19,22 @@
             <input  type="text" name="email" id="email">
         </p>
         <p>
+            <label for="idade">Idade:</label>
+            <input  type="number" name="idade" id="idade" min="12" max="120">
+        </p>
+        <div>
+            <p>Interesses:</p>
+
+            <label for="sql">SQL</label>
+            <input  type="checkbox" name="interesses[]" id="sql" value="SQL" >
+
+            <label for="node">Node.JS</label>
+            <input  type="checkbox" name="interesses[]" id="node" value="node">
+
+            <label for="ux">UX</label>
+            <input  type="checkbox" name="interesses[]" id="ux" value="ux">
+        </div>
+        <p>
             <label for="mensagem">Mensagem:</label> <br>
             <textarea required name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
         </p>
