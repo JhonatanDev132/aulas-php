@@ -11,6 +11,9 @@ switch($arquivos) {
     case 'cursos.php':
         $titulo = 'Cursos';
         break;
+    case 'contato.php':
+        $titulo = 'Contato';
+        break;
 
 }
 ?>
@@ -29,6 +32,7 @@ switch($arquivos) {
             <a href="index.php">Home</a>
             <a href="cursos.php">Cursos</a>
             <a href="duvidas.php">Dúvidas</a>
+            <a href="contato.php">Contato</a>
         </nav>
     </header>
 
