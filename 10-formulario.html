@@ -9,18 +9,18 @@
     <h1>Trabalhando com dados de Formulário</h1>
     <hr>
 
-    <form action="processa-get.php" method="get">
+    <form action="processa-post.php" method="post">
         <p>
             <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome">
+            <input  type="text" name="nome" id="nome">
         </p>
         <p>
             <label for="email">Email:</label>
-            <input type="text" name="email" id="email">
+            <input  type="text" name="email" id="email">
         </p>
         <p>
             <label for="mensagem">Mensagem:</label> <br>
-            <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
+            <textarea required name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
         </p>
 
         <button type="submit" name="enviar" id="enviar">Enviar</button>

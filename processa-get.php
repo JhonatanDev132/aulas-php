@@ -17,13 +17,14 @@
 //$mensagem = $_GET["mensagem"];
 extract($_GET)
 ?>
-
+<pre> <?=var_dump($_POST)?></pre>
 <h2>Dados:</h2>
 <ul>
     <li>Nome: <?=$nome?></li>
     <li>E-mail: <?=$email?></li>
     <li>Mensagem: <?=$mensagem?></li>
 </ul>
+
     
 </body>
 </html>
