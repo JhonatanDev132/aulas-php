@@ -22,7 +22,7 @@ if( empty($_POST["nome"]) || empty($_POST["email"])){
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 $idade = $_POST["idade"];
-$interesses = $_POST["interesses"];
+$interesses = $_POST["interesses"] ?? [];
 $mensagem = $_POST["mensagem"];
 ?>
 <pre> <?=var_dump($_POST)?></pre>
@@ -33,6 +33,8 @@ $mensagem = $_POST["mensagem"];
     <li>Idade: <?=$idade?></li>
     <li>Interesses: <?= implode(", ", $interesses) ?> </li>
     
+    
+
     <?php if(!empty($mensagem)){?>
         <li>Mensagem: <?=$mensagem?></li>
     <?php } ?>
