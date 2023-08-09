@@ -22,7 +22,7 @@ if( empty($_POST["nome"]) || empty($_POST["email"])){
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 $idade = $_POST["idade"];
-$interesses = $_POST["interesses"] ?? [];
+$interesses = $_POST["interesses"] ?? ['Nenhum interesse selecionado'];
 $mensagem = $_POST["mensagem"];
 ?>
 <pre> <?=var_dump($_POST)?></pre>
@@ -31,8 +31,22 @@ $mensagem = $_POST["mensagem"];
     <li>Nome: <?=$nome?></li>
     <li>E-mail: <?=$email?></li>
     <li>Idade: <?=$idade?></li>
-    <li>Interesses: <?= implode(", ", $interesses) ?> </li>
     
+    <?php ?>
+
+<!-- Versão 1 -->
+    <li>Interesses: <?= implode(", ", $interesses) ?> </li>
+
+<!-- Versão 2: Acessando cada interesse exixtente no array usando loop -->
+    <li>
+        <ul>
+            <?php foreach( $interesses as $interesse){?>
+            <li><?=$interesse?></li>
+            <?php }?>
+        </ul>    
+    </li>
+
+    <?php ?>
     
 
     <?php if(!empty($mensagem)){?>
