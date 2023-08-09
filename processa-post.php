@@ -19,11 +19,15 @@ if( empty($_POST["nome"]) || empty($_POST["email"])){
 <?php
 } else {
 
-$nome = $_POST["nome"];
-$email = $_POST["email"];
-$idade = $_POST["idade"];
-$interesses = $_POST["interesses"] ?? ['Nenhum interesse selecionado'];
-$mensagem = $_POST["mensagem"];
+$nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
+
+$email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+
+$idade = filter_input(INPUT_POST, "idade", FILTER_SANITIZE_NUMBER_INT);
+
+$interesses = filter_var_array( $_POST["interesses"] ?? ["nenhum interesse selecionado"], FILTER_SANITIZE_SPECIAL_CHARS);
+
+$mensagem = filter_input(INPUT_POST, "mensagem", FILTER_SANITIZE_SPECIAL_CHARS);
 ?>
 <pre> <?=var_dump($_POST)?></pre>
 <h2>Dados:</h2>
@@ -31,22 +35,7 @@ $mensagem = $_POST["mensagem"];
     <li>Nome: <?=$nome?></li>
     <li>E-mail: <?=$email?></li>
     <li>Idade: <?=$idade?></li>
-    
-    <?php ?>
-
-<!-- Versão 1 -->
     <li>Interesses: <?= implode(", ", $interesses) ?> </li>
-
-<!-- Versão 2: Acessando cada interesse exixtente no array usando loop -->
-    <li>
-        <ul>
-            <?php foreach( $interesses as $interesse){?>
-            <li><?=$interesse?></li>
-            <?php }?>
-        </ul>    
-    </li>
-
-    <?php ?>
     
 
     <?php if(!empty($mensagem)){?>
