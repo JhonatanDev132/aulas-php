@@ -63,6 +63,21 @@
         .barraDeResposta{
             width: 100%;
         }
+
+        .erro p{
+            color: red;
+            padding: 25px;
+            
+        }
+
+        .erro a{
+            background-color: #F2BB4E;
+            color: white;
+            border: 2px solid black;
+            text-decoration: none;
+            padding: 3px;
+            margin: 30px;
+        }
     </style>
 </head>
 
@@ -91,8 +106,10 @@
 
         if (empty($_POST["nome"]) || empty($_POST["preco"])) {
     ?>
+        <div class="erro">
             <p>Você deve preencher nome e preço</p>
             <a href="07-exercicio.php">voltar</a>
+        </div>
 
         <?php
         } else {
