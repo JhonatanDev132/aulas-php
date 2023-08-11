@@ -7,6 +7,7 @@
     <title>Exercício 7 | Formulário</title>
 
     <style>
+        /* CSS basicão, mas está ok */
         *{
             padding: 0px;
             margin: 0px;
@@ -96,6 +97,9 @@
 
         $fabricante =  filter_input(INPUT_POST, "fabricante", FILTER_SANITIZE_SPECIAL_CHARS);
 
+        /* Quanto ao preço, na verdade você deveria usar dois filtros:
+        um para sanitizar números do tipo float e outro para aceitar casas decimais/dígitos.
+        Experimente digitar um preço de 1500,78 e veja como ele aparece... */
         $preco = filter_input(INPUT_POST, "preco", FILTER_SANITIZE_NUMBER_INT);
 
         $disponibilidade = filter_input(INPUT_POST, "selecao", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -139,8 +143,10 @@
             <div>
                 <label>Fabricante:</label><br>
                 <select class="barraDeResposta" name="fabricante">
+                    <!-- Pode deixar o <option> vazio, sem o "Selecione" -->
                     <option>Selecione</option>
 
+                    <!-- foreach está correto -->
                     <!-- Loop for each para a array do fabricantes -->
                     <?php foreach ($fabricantes as $fabricante) { ?>
                         <option><?= $fabricante ?></option>
@@ -152,6 +158,7 @@
             <div>
             <label for="preco">Preço do produto:</label> <br>
 
+            <!-- HTML certo, mas PHP errado (veja os comentários que fiz sobre a variável preço) -->
             <input class="barraDeResposta" type="number" required min="100" max="10000" step=".01" name="preco" id="preco" %>
             </div>
 
@@ -159,9 +166,13 @@
                 <label>Disponibilidade</label>
 
                 <input name="selecao" id="sim" value="Sim" type="radio">
+                
+                <!-- O label deve apontar (for) para o id, e não o name -->
                 <label for="selecao">Sim</label>
-
+                
                 <input name="selecao" id="nao" value="Não" type="radio">
+                
+                <!-- O label deve apontar (for) para o id, e não o name -->
                 <label for="selecao">Não</label>
 
             </div>
